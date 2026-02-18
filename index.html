@@ -2289,7 +2289,13 @@
 
       const pg = document.getElementById('personal-repos-grid');
       const oc = document.getElementById('orgs-container');
-
+      const headTag = document.getElementsByTagName('head')[0];
+      const linkTag = document.createElement('link');
+      linkTag.rel = 'shortcut icon';
+      linkTag.href = AVATAR_URL;
+      linkTag.type = 'image/x-icon';
+      headTag.appendChild(linkTag);
+      
       async function loadGH() {
         try {
           const [repos, orgs] = await Promise.all([
